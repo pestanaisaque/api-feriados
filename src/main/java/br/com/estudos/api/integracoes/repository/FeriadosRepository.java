@@ -3,6 +3,7 @@ package br.com.estudos.api.integracoes.repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,8 @@ public class FeriadosRepository {
 	}
 
 	public Feriado getByYear(String year) {
-		return feriados.values().stream().filter(feriado -> year.equals(feriado.getAno())).findFirst().orElseThrow();
+		Optional<Feriado> feriadoEncontrado = feriados.values().stream().filter(feriado -> year.equals(feriado.getAno())).findFirst();
+		return feriadoEncontrado.orElse(null);
 	}
 
 	public List<Feriado> getAll() {

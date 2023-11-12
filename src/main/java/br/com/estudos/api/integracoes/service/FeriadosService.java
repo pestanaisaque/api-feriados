@@ -6,6 +6,7 @@ import br.com.estudos.api.integracoes.domain.Feriado;
 import br.com.estudos.api.integracoes.domain.FeriadosRequest;
 
 public interface FeriadosService {
+	
 	Feriado createFeriado(FeriadosRequest request);
 
 	Feriado getByYear(String name);
